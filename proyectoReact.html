@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proyecto React</title>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js">
+
+    </script>
+  </head>
+  <body>
+    <h2>Proyecto React</h2>
+    <div id="marco"></div>
+
+    <script type="text/babel">
+      class Principal extends React.Component {
+        render(){
+          return(
+            <h2>Hola desde componente de React</h2>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <Principal/>,
+        document.getElementById('marco')
+      );
+    </script>
+  </body>
+</html>
