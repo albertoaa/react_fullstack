@@ -26,9 +26,27 @@
       }
 
       class IntroducirTexto extends React.Component {
+        constructor(){
+          super();
+          this.state = {
+            mensaje: "Escribe tu nombre",
+            nombre: ""
+          }
+        }
+
+        cambiarNombre(evento){
+          this.setState(
+            {nombre: "Hola " + evento.target.value}
+          );
+        }
+
         render(){
           return(
-            <h2>Texto desde otro componente</h2>
+            <div>
+              <input onChange={this.cambiarNombre.bind(this)} placeholder={this.state.mensaje}/>
+              <h2>{this.state.nombre}</h2>
+            </div>
+
           );
         }
       }
