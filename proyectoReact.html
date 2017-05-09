@@ -15,11 +15,49 @@
 
     <script type="text/babel">
       class Principal extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            numero: 0
+          }
+        }
+
+        masUno() {
+          this.setState({ numero : this.state.numero + 1 });
+        }
+
+        menosUno() {
+          this.setState({ numero: this.state.numero - 1 });
+        }
+
         render(){
           return(
             <div>
               <h2>Hola desde componente de React</h2>
               <IntroducirTexto/>
+              <h2>{ this.state.numero }</h2>
+              <AumentarNumero numero = { this.state.numero } functionAumentar = { this.masUno.bind(this) }/>
+              <DisminuirNumero numero = { this.state.numero } functionDisminuir = { this.menosUno.bind(this) }/>
+            </div>
+          );
+        }
+      }
+
+      class AumentarNumero extends React.Component {
+        render(){
+          return(
+            <div>
+              <button onClick = { this.props.functionAumentar }> Aumentar </button>
+            </div>
+          );
+        }
+      }
+
+      class DisminuirNumero extends React.Component {
+        render() {
+          return(
+            <div>
+              <button onClick = { this.props. functionDisminuir }>Disminuir</button>
             </div>
           );
         }
